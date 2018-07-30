@@ -13,6 +13,7 @@ par Michael Faille et Benoit Paquet
 * Conclusion
 
 ## Introduction
+
 ![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/xkcd_half.jpg)
 
 ## Objectif
@@ -93,7 +94,7 @@ par Michael Faille et Benoit Paquet
 Source: https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_r%C3%A9currents#Long_short-term_memory
 
 ## Présentation du LSTM
-### LSTM c'est:
+#### LSTM c'est:
 * Long short-term memory
 * Un type de réseau de neurones récurrent
 * Incoutournable pour les séries temporelles
@@ -126,6 +127,19 @@ TIMESTEPS_AHEAD = 90
 ```
 
 # Expérience
+
+## Features choisis ?
+
+#### Les voici :
+* Sentiments
+* Price-to-Earnings Ratio
+* Price-to-Book Ratio
+* Debt-to-Equity
+* Free Cash Flow
+* PEG Ratio
+
+Source: [https://www.investopedia.com/articles/fundamental-analysis/09/five-must-have-metrics-value-investors.asp](https://www.investopedia.com/articles/fundamental-analysis/09/five-must-have-metrics-value-investors.asp)
+
 
 ## Résultats
 
