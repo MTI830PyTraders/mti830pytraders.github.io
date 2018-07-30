@@ -1,8 +1,6 @@
-
 # MTI830 - ÉTSMINE 2018
 ## Prédictions des marchés de capitaux avec l'analyse de sentiments
 ### par Michael Faille et Benoit Paquet
-mti830pytraders.github.io
 
 # Préambule
 ## Déroulement de la présentation
@@ -123,7 +121,7 @@ mti830pytraders.github.io
 * Multi-index (cube) : Data + Ticker
 
 ## Présentation du LSTM
-![](https://upload.wikimedia.org/wikipedia/commons/6/63/Long_Short-Term_Memory.svg)
+![](out.png)
 Source: wikipedia.org (Réseau de neurones récurrents)
 
 ## Présentation du LSTM
@@ -262,6 +260,33 @@ Source: Investopedia 5 must-have metrics for value investors
    <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_MCD.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_MCD.webm
 </video>
 </center>
+
+## Résultat moyen par feature lors des 10 dernières époques
+```
+Feature: pe
+MAPE     MAE        MAPE_val  MAE_val
+64326.5  0.0105203  38.5159   0.0376469
+
+Feature: de
+MAPE     MAE         MAPE_val  MAE_val
+15788.3  0.00253461  10.7115   0.0148578
+```
+
+##
+
+```
+Feature: pb
+MAPE     MAE         MAPE_val  MAE_val
+11785.5  0.00141338  7.87596   0.00641467
+
+Feature: fcf
+MAPE     MAE         MAPE_val  MAE_val
+10748.8  0.00201642  5.94198   0.00462182
+
+Feature: peg
+MAPE   MAE         MAPE_val  MAE_val
+14452  0.00176067  6.50103   0.00528985
+```
 
 # Conclusion
 ##
