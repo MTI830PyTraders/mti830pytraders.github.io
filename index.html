@@ -224,9 +224,9 @@
 </ul>
 </section><section id="paramètres-du-lstm" class="slide level2">
 <h2>Paramètres du LSTM</h2>
-<pre class="toml"><code>[default]
-extra_input = [&#39;sentiment&#39;, &#39;pe&#39;]
-tickers = [&#39;MCD&#39;, &#39;DIS&#39;, &#39;INTC&#39;, &#39;AAPL&#39;, &#39;MSFT&#39;, &#39;WDC&#39;]
+<pre class="toml"><code>[fcf_MCD]
+extra_input = [&#39;fcf&#39;]
+tickers = [&#39;MCD&#39;]
 BATCH_SIZE = 90
 LOSS = &#39;mae&#39;
 N_HIDDEN = 1000
@@ -236,7 +236,7 @@ NUM_TIMESTEPS = 180
 LEARNING_RATE = 0.001
 BEGINNING_DATE = &#39;2013-03-31&#39;
 ENDING_DATE = &#39;2018-06-31&#39;
-TIMESTEPS_AHEAD = 90</code></pre>
+TIMESTEPS_AHEAD = 7</code></pre>
 </section></section>
 <section><section id="expérience" class="title-slide slide level1"><h1>Expérience</h1></section><section id="compagnies-du-test" class="slide level2">
 <h2>Compagnies du test:</h2>

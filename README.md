@@ -143,9 +143,9 @@ Adapté pour le comportement du chagement du prix des actions varie dans le temp
 
 ## Paramètres du LSTM
 ```toml
-[default]
-extra_input = ['sentiment', 'pe']
-tickers = ['MCD', 'DIS', 'INTC', 'AAPL', 'MSFT', 'WDC']
+[fcf_MCD]
+extra_input = ['fcf']
+tickers = ['MCD']
 BATCH_SIZE = 90
 LOSS = 'mae'
 N_HIDDEN = 1000
@@ -155,7 +155,7 @@ NUM_TIMESTEPS = 180
 LEARNING_RATE = 0.001
 BEGINNING_DATE = '2013-03-31'
 ENDING_DATE = '2018-06-31'
-TIMESTEPS_AHEAD = 90
+TIMESTEPS_AHEAD = 7
 ```
 
 # Expérience
