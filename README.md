@@ -1,7 +1,8 @@
 
 # MTI830 - ÉTSMINE 2018
 ## Prédictions des marchés de capitaux avec l'analyse de sentiments
-par Michael Faille et Benoit Paquet
+### par Michael Faille et Benoit Paquet
+mti830pytraders.github.io
 
 # Préambule
 ## Déroulement de la présentation
@@ -198,7 +199,7 @@ Source: Investopedia 5 must-have metrics for value investors
 ## Microsoft - PB
 <center>
 <video autoplay="true" loop="true" muted="true" width="640" controls>
-   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_MSFT.webm" type="video/webm"> Your browser does not support the video tag.
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_MSFT.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_MSFT.webm
 </video>
 </center>
 
@@ -208,7 +209,7 @@ Source: Investopedia 5 must-have metrics for value investors
 ## Microsoft - DE
 <center>
 <video autoplay="true" loop="true" muted="true" width="640" controls>
-   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/de_MSFT.webm" type="video/webm"> Your browser does not support the video tag.
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/de_MSFT.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/de_MSFT.webm
 </video>
 </center>
 
@@ -218,7 +219,7 @@ Source: Investopedia 5 must-have metrics for value investors
 ## Microsoft - PE
 <center>
 <video autoplay="true" loop="true" muted="true" width="640" controls>
-   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_MSFT.webm" type="video/webm"> Your browser does not support the video tag.
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_MSFT.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_MSFT.webm
 </video>
 </center>
 
@@ -228,7 +229,7 @@ Source: Investopedia 5 must-have metrics for value investors
 ## Apple - FCF
 <center>
 <video autoplay="true" loop="true" muted="true" width="640" controls>
-   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_AAPL.webm" type="video/webm"> Your browser does not support the video tag.
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_AAPL.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_AAPL.webm
 </video>
 </center>
 
@@ -238,7 +239,7 @@ Source: Investopedia 5 must-have metrics for value investors
 ## Apple - PB
 <center>
 <video autoplay="true" loop="true" muted="true" width="640" controls>
-   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_AAPL.webm" type="video/webm"> Your browser does not support the video tag.
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_AAPL.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_AAPL.webm
 </video>
 </center>
 
@@ -248,7 +249,7 @@ Source: Investopedia 5 must-have metrics for value investors
 ## Disney - PE
 <center>
 <video autoplay="true" loop="true" muted="true" width="640" controls>
-   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_DIS.webm" type="video/webm"> Your browser does not support the video tag.
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_DIS.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_DIS.webm
 </video>
 </center>
 
@@ -258,7 +259,7 @@ Source: Investopedia 5 must-have metrics for value investors
 ## McDonalds - FCF
 <center>
 <video autoplay="true" loop="true" muted="true" width="640" controls>
-   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_MCD.webm" type="video/webm"> Your browser does not support the video tag.
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_MCD.webm" type="video/webm"> Your browser does not support the video tag. https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_MCD.webm
 </video>
 </center>
 
