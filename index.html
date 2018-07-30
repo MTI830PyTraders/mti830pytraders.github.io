@@ -51,7 +51,7 @@
 </ul>
 </section><section id="introduction" class="slide level2">
 <h2>Introduction</h2>
-<p><img data-src="xkcd_half.jpg" /></p>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/xkcd_half.jpg" /></p>
 </section><section id="objectif" class="slide level2">
 <h2>Objectif</h2>
 <h4 id="faire-la-prédiction-de-la-valeur-dune-action-dans-le-futur-avec">Faire la prédiction de la valeur d’une action dans le futur avec:</h4>
@@ -147,20 +147,50 @@
 <h2>Datasets</h2>
 </section><section id="fusion-des-données" class="slide level2">
 <h2>Fusion des données</h2>
-</section><section id="entrainement-dun-modèle-avec-lstm" class="slide level2">
-<h2>Entrainement d’un modèle avec LSTM</h2>
 </section><section id="présentation-du-lstm" class="slide level2">
 <h2>Présentation du LSTM</h2>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/6/63/Long_Short-Term_Memory.svg" /> Source: https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_r%C3%A9currents#Long_short-term_memory</p>
+</section><section id="présentation-du-lstm-1" class="slide level2">
+<h2>Présentation du LSTM</h2>
+<h3 id="lstm-cest">LSTM c’est:</h3>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Long short-term memory</li>
+<li>Un type de réseau de neurones récurrent</li>
+<li>Incoutournable pour les séries temporelles</li>
 </ul>
+</section><section id="présentation-du-lstm-2" class="slide level2">
+<h2>Présentation du LSTM</h2>
+<p>Problème de série temporelle donc: * Adapté pour le comportement du chagement du prix des actions varie dans le temps</p>
+</section><section id="implémentation-du-lstm" class="slide level2">
+<h2>Implémentation du LSTM</h2>
+<ul>
+<li>Implémentation “stateful”</li>
+<li>Implémenté avec Tensorflow</li>
+<li>Utilise l’API de Keras</li>
+<li>Multidimensionnel</li>
+</ul>
+</section><section id="paramètres-du-lstm" class="slide level2">
+<h2>Paramètres du LSTM</h2>
+<pre class="toml"><code>[default]
+extra_input = [&#39;sentiment&#39;, &#39;pe&#39;]
+tickers = [&#39;MCD&#39;, &#39;DIS&#39;, &#39;INTC&#39;, &#39;AAPL&#39;, &#39;MSFT&#39;, &#39;WDC&#39;]
+BATCH_SIZE = 90
+LOSS = &#39;mae&#39;
+N_HIDDEN = 1000
+NUM_EPOCHS = 100
+SAVE_EVERY = 10
+NUM_TIMESTEPS = 180
+LEARNING_RATE = 0.001
+BEGINNING_DATE = &#39;2013-03-31&#39;
+ENDING_DATE = &#39;2018-06-31&#39;
+TIMESTEPS_AHEAD = 90</code></pre>
 </section></section>
-<section><section id="résultats" class="title-slide slide level1"><h1>Résultats</h1></section></section>
+<section><section id="expérience" class="title-slide slide level1"><h1>Expérience</h1></section><section id="résultats" class="slide level2">
+<h2>Résultats</h2>
+</section></section>
 <section><section id="conclusion" class="title-slide slide level1"><h1>Conclusion</h1></section><section id="section" class="slide level2">
 <h2></h2>
-<p><img data-src="xkcd.jpg" /></p>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/xkcd.jpg" /></p>
 </section><section id="travaux-futurs" class="slide level2">
 <h2>Travaux futurs</h2>
 <ul>
