@@ -1,4 +1,4 @@
- 
+
 # MTI830 - ÉTSMINE 2018
 ## Prédictions des marchés de capitaux avec l'analyse de sentiments
 par Michael Faille et Benoit Paquet
@@ -13,10 +13,10 @@ par Michael Faille et Benoit Paquet
 * Conclusion
 
 ## Introduction
-![](xkcd_half.jpg)
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/xkcd_half.jpg)
 
 ## Objectif
-#### Faire la prédiction de la valeur d'une action dans le futur avec: 
+#### Faire la prédiction de la valeur d'une action dans le futur avec:
 * Le deep learning
 * Le cours de la bourse
 * L'analyse de sentiments
@@ -30,7 +30,7 @@ par Michael Faille et Benoit Paquet
 * a proposé l'hypothèse suivante:
   * Stock price * Sentiments = Discounted Cash Flow
 
-## Présentation de Carl 
+## Présentation de Carl
 * Détient un MBA du HEC
 * Fondateur de la startup Evovest
 * Expert en finance et en machine learning
@@ -50,7 +50,7 @@ par Michael Faille et Benoit Paquet
 * nécessite encore plus de travail pour mettre la main sur un autre dataset de Twitter
 
 # Recommendations de nos experts
-## Dataset: FinSents 
+## Dataset: FinSents
 #### Caractéristiques:
 * Génère une valeur de sentiment par jour par compagnie
 * La valeur provient de différentes sources:
@@ -70,7 +70,7 @@ par Michael Faille et Benoit Paquet
   * 1 000 sud-américaines
 
 ## Dataset: Sharadar
-#### Source d'information financière: 
+#### Source d'information financière:
 * Sur plus de 12 000 compagnies américaines
 * Représente plus d'une centaine d'attributs par compagnie
 * Contient jusqu'à 20 ans d'historique
@@ -86,20 +86,52 @@ par Michael Faille et Benoit Paquet
 #  Méthodes - Préparation des données
 ## Datasets
 
-## Fusion des données 
+## Fusion des données
 
-## Entrainement d'un modèle avec LSTM 
+## Présentation du LSTM
+![](https://upload.wikimedia.org/wikipedia/commons/6/63/Long_Short-Term_Memory.svg)
+Source: https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_r%C3%A9currents#Long_short-term_memory
 
-## Présentation du LSTM 
-* 
-* 
-* 
+## Présentation du LSTM
+### LSTM c'est:
+* Long short-term memory
+* Un type de réseau de neurones récurrent
+* Incoutournable pour les séries temporelles
 
-# Résultats
+## Présentation du LSTM
+Problème de série temporelle donc:
+*   Adapté pour le comportement du chagement du prix des actions varie dans le temps
+
+## Implémentation du LSTM
+* Implémentation "stateful"
+* Implémenté avec Tensorflow
+* Utilise l'API de Keras
+* Multidimensionnel
+
+## Paramètres du LSTM
+```toml
+[default]
+extra_input = ['sentiment', 'pe']
+tickers = ['MCD', 'DIS', 'INTC', 'AAPL', 'MSFT', 'WDC']
+BATCH_SIZE = 90
+LOSS = 'mae'
+N_HIDDEN = 1000
+NUM_EPOCHS = 100
+SAVE_EVERY = 10
+NUM_TIMESTEPS = 180
+LEARNING_RATE = 0.001
+BEGINNING_DATE = '2013-03-31'
+ENDING_DATE = '2018-06-31'
+TIMESTEPS_AHEAD = 90
+```
+
+# Expérience
+
+## Résultats
 
 # Conclusion
 ##
-![](xkcd.jpg)
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/xkcd.jpg)
 
 ## Travaux futurs
 * Évaluer la pertinence des autres attributs du dataset
