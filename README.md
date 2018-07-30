@@ -1,5 +1,5 @@
  
-# MTI830 - ÉTSMINE 2018
+# MTI830 - ÉTSMINE 2018A
 ## Prédictions des marchés de capitaux avec l'analyse de sentiments
 par Michael Faille et Benoit Paquet
 
@@ -13,7 +13,7 @@ par Michael Faille et Benoit Paquet
 * Conclusion
 
 ## Introduction
-![](docs/xkcd_half.jpg)
+![](xkcd_half.jpg)
 
 ## Objectif
 #### Faire la prédiction de la valeur d'une action dans le futur avec: 
@@ -99,7 +99,7 @@ par Michael Faille et Benoit Paquet
 
 # Conclusion
 ##
-![](docs/xkcd.jpg)
+![](xkcd.jpg)
 
 ## Travaux futurs
 * Évaluer la pertinence des autres attributs du dataset
