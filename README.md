@@ -9,6 +9,7 @@ par Michael Faille et Benoit Paquet
 * Présentation de nos experts
 * Premières expériences
 * Méthodes
+* Expérience
 * Résultats
 * Conclusion
 
@@ -75,6 +76,7 @@ par Michael Faille et Benoit Paquet
 * Sur plus de 12 000 compagnies américaines
 * Représente plus d'une centaine d'attributs par compagnie
 * Contient jusqu'à 20 ans d'historique
+* Offre aussi l'information de la bourse pour ces compagnies
 
 ## Datasets
 #### Possibilités de FinSents et Sharadar:
@@ -85,13 +87,43 @@ par Michael Faille et Benoit Paquet
 * Datasets payants au coût de 50$ par mois
 
 #  Méthodes - Préparation des données
-## Datasets
+## Préparation - Finsents
+
+* Filtrer les compagnies qui ne sont pas aux États-Unis
+* Uniformiser la colone des tickers pour merge.
+  * \<ticker\>_\<pays\> -> \<ticker\>
+* Suppression des rangés ayant le volume nouvelles collectés à zéro.
+
+## Préparation - Sharadar Core US Fundamentals
+* «datekey» a été choisi comme index
+* Choix de «MRQ» «Most-recent reported Quarter» comme type d'entré
+* Filtrer les tickers:
+  * maximum de données pour le laps de temps désiré.
+
+
+## Préparation - Sharadar US Equities and Fund Prices
+* Aucun travail particulier ne s'est fait sur ce dataset.
 
 ## Fusion des données
+#### On garde seulement les tickers communs aux datasets
+* Quandl - Finsents:
+    * 3,4Go -> 44M 12%
+* Quandl - Sharadar Core US Fundamentals :
+    * 347Mo -> 37Mo 10,6%
+* Quandl - Sharadar US Equities and Fund Prices :
+    * 492Mo -> 215M 43,7%
+
+## Résultat de la fusion des datasets :
+* Données interpolés linéairement aux jours
+* Taille : 4.5 go au total
+* Format : netcdf pour plusieurs dimensions
+* Bibliothèques : Streaming de données depuis le disque
+    * Usage de Xarray et Pandas
+* Multi-index (cube) : Data + Ticker
 
 ## Présentation du LSTM
 ![](https://upload.wikimedia.org/wikipedia/commons/6/63/Long_Short-Term_Memory.svg)
-Source: https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_r%C3%A9currents#Long_short-term_memory
+Source: wikipedia.org (Réseau de neurones récurrents)
 
 ## Présentation du LSTM
 #### LSTM c'est:
@@ -100,8 +132,8 @@ Source: https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_r%C3%A9currents#Lo
 * Incoutournable pour les séries temporelles
 
 ## Présentation du LSTM
-Problème de série temporelle donc:
-*   Adapté pour le comportement du chagement du prix des actions varie dans le temps
+#### Problème de série temporelle donc:
+Adapté pour le comportement du chagement du prix des actions varie dans le temps
 
 ## Implémentation du LSTM
 * Implémentation "stateful"
@@ -128,6 +160,14 @@ TIMESTEPS_AHEAD = 90
 
 # Expérience
 
+## Compagnies du test:
+* AAPL - Apple
+* MSFT - Microsoft
+* MCD - McDonalds
+* WCD - Western Digitals
+* DIS - Disney
+* INTC - Intel
+
 ## Features choisis ?
 
 #### Les voici :
@@ -138,10 +178,89 @@ TIMESTEPS_AHEAD = 90
 * Free Cash Flow
 * PEG Ratio
 
-Source: [https://www.investopedia.com/articles/fundamental-analysis/09/five-must-have-metrics-value-investors.asp](https://www.investopedia.com/articles/fundamental-analysis/09/five-must-have-metrics-value-investors.asp)
+Source: Investopedia 5 must-have metrics for value investors
 
+## Échantillons retenus
+#### 7 échantillons / 30 (les plus intéressants)
+* Microsoft - PB
+* Microsoft - DE
+* Microsoft - PE
+* Apple - FCF
+* Apple - PB
+* Disney - PE
+* McDonalds - FCF
 
-## Résultats
+# Résultats
+
+## Microsoft - PB - Loss
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pb_MSFT/loss.png)
+
+## Microsoft - PB
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_MSFT.webm" type="video/webm"> Your browser does not support the video tag.
+</video>
+</center>
+
+## Microsoft - DE - Loss
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/de_MSFT/loss.png)
+
+## Microsoft - DE
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/de_MSFT.webm" type="video/webm"> Your browser does not support the video tag.
+</video>
+</center>
+
+## Microsoft - PE - Loss
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pe_MSFT/loss.png)
+
+## Microsoft - PE
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_MSFT.webm" type="video/webm"> Your browser does not support the video tag.
+</video>
+</center>
+
+## Apple - FCF - Loss
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/fcf_AAPL/loss.png)
+
+## Apple - FCF
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_AAPL.webm" type="video/webm"> Your browser does not support the video tag.
+</video>
+</center>
+
+## Apple - PB - Loss
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pb_AAPL/loss.png)
+
+## Apple - PB
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_AAPL.webm" type="video/webm"> Your browser does not support the video tag.
+</video>
+</center>
+
+## Disney - PE - Loss
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pe_DIS/loss.png)
+
+## Disney - PE
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_DIS.webm" type="video/webm"> Your browser does not support the video tag.
+</video>
+</center>
+
+## McDonalds - FCF - Loss
+![](https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/fcf_MCD/loss.png)
+
+## McDonalds - FCF
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+   <source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_MCD.webm" type="video/webm"> Your browser does not support the video tag.
+</video>
+</center>
 
 # Conclusion
 ##
@@ -153,6 +272,10 @@ Source: [https://www.investopedia.com/articles/fundamental-analysis/09/five-must
 * Utiliser plusieurs tickers pour entrainer un même modèle
 * Modifier les paramètres d'entrainement du modèle
 * Entrainer d'autres types de modèles et comparer les résultats
+* Discounted Cash Flow (DCF)
+    *  Interpoler le DCF avec le Random Forest
+    *  Prédire le DCF
+    *  Prédire quand échanger avec le DCF du futur
 
 ## Remerciements
 #### Merci à:
@@ -161,8 +284,8 @@ Source: [https://www.investopedia.com/articles/fundamental-analysis/09/five-must
 * Michael Faille pour avoir sollicité Francis Piéraut dans la définition du projet.
 * Carl Dussault pour ses conseils sur la finance
 
+## Merci pour votre attention!
 ## Questions?
-Merci pour votre attention!
 
 code source disponible à <br>
-https://github.com/MTI830PyTraders/TradingPlayground
+github.com/MTI830PyTraders/TradingPlayground

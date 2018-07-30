@@ -46,6 +46,7 @@
 <li>Présentation de nos experts</li>
 <li>Premières expériences</li>
 <li>Méthodes</li>
+<li>Expérience</li>
 <li>Résultats</li>
 <li>Conclusion</li>
 </ul>
@@ -131,6 +132,7 @@
 <li>Sur plus de 12 000 compagnies américaines</li>
 <li>Représente plus d’une centaine d’attributs par compagnie</li>
 <li>Contient jusqu’à 20 ans d’historique</li>
+<li>Offre aussi l’information de la bourse pour ces compagnies</li>
 </ul>
 </section><section id="datasets" class="slide level2">
 <h2>Datasets</h2>
@@ -143,13 +145,63 @@
 <li>Datasets payants au coût de 50$ par mois</li>
 </ul>
 </section></section>
-<section><section id="méthodes---préparation-des-données" class="title-slide slide level1"><h1>Méthodes - Préparation des données</h1></section><section id="datasets-1" class="slide level2">
-<h2>Datasets</h2>
+<section><section id="méthodes---préparation-des-données" class="title-slide slide level1"><h1>Méthodes - Préparation des données</h1></section><section id="préparation---finsents" class="slide level2">
+<h2>Préparation - Finsents</h2>
+<ul>
+<li>Filtrer les compagnies qui ne sont pas aux États-Unis</li>
+<li>Uniformiser la colone des tickers pour merge.
+<ul>
+<li>&lt;ticker&gt;_&lt;pays&gt; -&gt; &lt;ticker&gt;</li>
+</ul></li>
+<li>Suppression des rangés ayant le volume nouvelles collectés à zéro.</li>
+</ul>
+</section><section id="préparation---sharadar-core-us-fundamentals" class="slide level2">
+<h2>Préparation - Sharadar Core US Fundamentals</h2>
+<ul>
+<li>«datekey» a été choisi comme index</li>
+<li>Choix de «MRQ» «Most-recent reported Quarter» comme type d’entré</li>
+<li>Filtrer les tickers:
+<ul>
+<li>maximum de données pour le laps de temps désiré.</li>
+</ul></li>
+</ul>
+</section><section id="préparation---sharadar-us-equities-and-fund-prices" class="slide level2">
+<h2>Préparation - Sharadar US Equities and Fund Prices</h2>
+<ul>
+<li>Aucun travail particulier ne s’est fait sur ce dataset.</li>
+</ul>
 </section><section id="fusion-des-données" class="slide level2">
 <h2>Fusion des données</h2>
+<h4 id="on-garde-seulement-les-tickers-communs-aux-datasets">On garde seulement les tickers communs aux datasets</h4>
+<ul>
+<li>Quandl - Finsents:
+<ul>
+<li>3,4Go -&gt; 44M 12%</li>
+</ul></li>
+<li>Quandl - Sharadar Core US Fundamentals :
+<ul>
+<li>347Mo -&gt; 37Mo 10,6%</li>
+</ul></li>
+<li>Quandl - Sharadar US Equities and Fund Prices :
+<ul>
+<li>492Mo -&gt; 215M 43,7%</li>
+</ul></li>
+</ul>
+</section><section id="résultat-de-la-fusion-des-datasets" class="slide level2">
+<h2>Résultat de la fusion des datasets :</h2>
+<ul>
+<li>Données interpolés linéairement aux jours</li>
+<li>Taille : 4.5 go au total</li>
+<li>Format : netcdf pour plusieurs dimensions</li>
+<li>Bibliothèques : Streaming de données depuis le disque
+<ul>
+<li>Usage de Xarray et Pandas</li>
+</ul></li>
+<li>Multi-index (cube) : Data + Ticker</li>
+</ul>
 </section><section id="présentation-du-lstm" class="slide level2">
 <h2>Présentation du LSTM</h2>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/6/63/Long_Short-Term_Memory.svg" /> Source: https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_r%C3%A9currents#Long_short-term_memory</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/6/63/Long_Short-Term_Memory.svg" /> Source: wikipedia.org (Réseau de neurones récurrents)</p>
 </section><section id="présentation-du-lstm-1" class="slide level2">
 <h2>Présentation du LSTM</h2>
 <h4 id="lstm-cest">LSTM c’est:</h4>
@@ -160,7 +212,8 @@
 </ul>
 </section><section id="présentation-du-lstm-2" class="slide level2">
 <h2>Présentation du LSTM</h2>
-<p>Problème de série temporelle donc: * Adapté pour le comportement du chagement du prix des actions varie dans le temps</p>
+<h4 id="problème-de-série-temporelle-donc">Problème de série temporelle donc:</h4>
+<p>Adapté pour le comportement du chagement du prix des actions varie dans le temps</p>
 </section><section id="implémentation-du-lstm" class="slide level2">
 <h2>Implémentation du LSTM</h2>
 <ul>
@@ -185,7 +238,17 @@ BEGINNING_DATE = &#39;2013-03-31&#39;
 ENDING_DATE = &#39;2018-06-31&#39;
 TIMESTEPS_AHEAD = 90</code></pre>
 </section></section>
-<section><section id="expérience" class="title-slide slide level1"><h1>Expérience</h1></section><section id="features-choisis" class="slide level2">
+<section><section id="expérience" class="title-slide slide level1"><h1>Expérience</h1></section><section id="compagnies-du-test" class="slide level2">
+<h2>Compagnies du test:</h2>
+<ul>
+<li>AAPL - Apple</li>
+<li>MSFT - Microsoft</li>
+<li>MCD - McDonalds</li>
+<li>WCD - Western Digitals</li>
+<li>DIS - Disney</li>
+<li>INTC - Intel</li>
+</ul>
+</section><section id="features-choisis" class="slide level2">
 <h2>Features choisis ?</h2>
 <h4 id="les-voici">Les voici :</h4>
 <ul>
@@ -196,9 +259,90 @@ TIMESTEPS_AHEAD = 90</code></pre>
 <li>Free Cash Flow</li>
 <li>PEG Ratio</li>
 </ul>
-<p>Source: <a href="https://www.investopedia.com/articles/fundamental-analysis/09/five-must-have-metrics-value-investors.asp" class="uri">https://www.investopedia.com/articles/fundamental-analysis/09/five-must-have-metrics-value-investors.asp</a></p>
-</section><section id="résultats" class="slide level2">
-<h2>Résultats</h2>
+<p>Source: Investopedia 5 must-have metrics for value investors</p>
+</section><section id="échantillons-retenus" class="slide level2">
+<h2>Échantillons retenus</h2>
+<h4 id="échantillons-30-les-plus-intéressants">7 échantillons / 30 (les plus intéressants)</h4>
+<ul>
+<li>Microsoft - PB</li>
+<li>Microsoft - DE</li>
+<li>Microsoft - PE</li>
+<li>Apple - FCF</li>
+<li>Apple - PB</li>
+<li>Disney - PE</li>
+<li>McDonalds - FCF</li>
+</ul>
+</section></section>
+<section><section id="résultats" class="title-slide slide level1"><h1>Résultats</h1></section><section id="microsoft---pb---loss" class="slide level2">
+<h2>Microsoft - PB - Loss</h2>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pb_MSFT/loss.png" /></p>
+</section><section id="microsoft---pb" class="slide level2">
+<h2>Microsoft - PB</h2>
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+<source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_MSFT.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</center>
+</section><section id="microsoft---de---loss" class="slide level2">
+<h2>Microsoft - DE - Loss</h2>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/de_MSFT/loss.png" /></p>
+</section><section id="microsoft---de" class="slide level2">
+<h2>Microsoft - DE</h2>
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+<source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/de_MSFT.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</center>
+</section><section id="microsoft---pe---loss" class="slide level2">
+<h2>Microsoft - PE - Loss</h2>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pe_MSFT/loss.png" /></p>
+</section><section id="microsoft---pe" class="slide level2">
+<h2>Microsoft - PE</h2>
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+<source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_MSFT.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</center>
+</section><section id="apple---fcf---loss" class="slide level2">
+<h2>Apple - FCF - Loss</h2>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/fcf_AAPL/loss.png" /></p>
+</section><section id="apple---fcf" class="slide level2">
+<h2>Apple - FCF</h2>
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+<source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_AAPL.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</center>
+</section><section id="apple---pb---loss" class="slide level2">
+<h2>Apple - PB - Loss</h2>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pb_AAPL/loss.png" /></p>
+</section><section id="apple---pb" class="slide level2">
+<h2>Apple - PB</h2>
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+<source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pb_AAPL.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</center>
+</section><section id="disney---pe---loss" class="slide level2">
+<h2>Disney - PE - Loss</h2>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/pe_DIS/loss.png" /></p>
+</section><section id="disney---pe" class="slide level2">
+<h2>Disney - PE</h2>
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+<source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/pe_DIS.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</center>
+</section><section id="mcdonalds---fcf---loss" class="slide level2">
+<h2>McDonalds - FCF - Loss</h2>
+<p><img data-src="https://raw.githubusercontent.com/MTI830PyTraders/mti830pytraders.github.io/master/RESULTS/fcf_MCD/loss.png" /></p>
+</section><section id="mcdonalds---fcf" class="slide level2">
+<h2>McDonalds - FCF</h2>
+<center>
+<video autoplay="true" loop="true" muted="true" width="640" controls>
+<source src="https://github.com/MTI830PyTraders/mti830pytraders.github.io/raw/master/video/fcf_MCD.webm" type="video/webm">
+Your browser does not support the video tag. </video>
+</center>
 </section></section>
 <section><section id="conclusion" class="title-slide slide level1"><h1>Conclusion</h1></section><section id="section" class="slide level2">
 <h2></h2>
@@ -211,6 +355,12 @@ TIMESTEPS_AHEAD = 90</code></pre>
 <li>Utiliser plusieurs tickers pour entrainer un même modèle</li>
 <li>Modifier les paramètres d’entrainement du modèle</li>
 <li>Entrainer d’autres types de modèles et comparer les résultats</li>
+<li>Discounted Cash Flow (DCF)
+<ul>
+<li>Interpoler le DCF avec le Random Forest</li>
+<li>Prédire le DCF</li>
+<li>Prédire quand échanger avec le DCF du futur</li>
+</ul></li>
 </ul>
 </section><section id="remerciements" class="slide level2">
 <h2>Remerciements</h2>
@@ -221,10 +371,11 @@ TIMESTEPS_AHEAD = 90</code></pre>
 <li>Michael Faille pour avoir sollicité Francis Piéraut dans la définition du projet.</li>
 <li>Carl Dussault pour ses conseils sur la finance</li>
 </ul>
+</section><section id="merci-pour-votre-attention" class="slide level2">
+<h2>Merci pour votre attention!</h2>
 </section><section id="questions" class="slide level2">
 <h2>Questions?</h2>
-<p>Merci pour votre attention!</p>
-<p>code source disponible à <br> https://github.com/MTI830PyTraders/TradingPlayground</p>
+<p>code source disponible à <br> github.com/MTI830PyTraders/TradingPlayground</p>
 </section></section>
     </div>
   </div>
