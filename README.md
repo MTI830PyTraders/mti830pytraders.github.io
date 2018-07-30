@@ -1,7 +1,7 @@
 # MTI830 - ÉTSMINE 2018
 ## Prédictions des marchés de capitaux avec l'analyse de sentiments
 ### par Michael Faille et Benoit Paquet
-
+ 
 # Préambule
 ## Déroulement de la présentation
 * Introduction
