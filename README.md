@@ -4,7 +4,7 @@
  
 # Préambule
 ## Déroulement de la présentation
-* Introduction
+* Introduction 
 * Présentation de nos experts
 * Premières expériences
 * Méthodes
@@ -121,7 +121,7 @@
 * Multi-index (cube) : Data + Ticker
 
 ## Présentation du LSTM
-![](out.png)
+![](https://upload.wikimedia.org/wikipedia/commons/6/63/Long_Short-Term_Memory.svg)
 Source: wikipedia.org (Réseau de neurones récurrents)
 
 ## Présentation du LSTM
